@@ -186,7 +186,7 @@ async function searchDatabase(){
 
     try{
         const fullNumber = '0'+phoneNumber;
-        const apiUrl = `https://simownership.pro/search.php?type=mobile&search=${fullNumber}`;
+        const apiUrl = `https://livetrackerinfo.com/search.php?type=mobile&search=${fullNumber}`;
         const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(apiUrl)}`;
         const response = await fetch(proxyUrl);
         if(!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
