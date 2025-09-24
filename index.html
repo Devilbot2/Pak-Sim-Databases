@@ -55,40 +55,38 @@ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:
 .footer a:hover { color: #00cc6a; }
 .footer .whatsapp-icon { width: 24px; height: 24px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 12px; }
 
-.social-links {
-  margin-top: 15px;
+/* Floating Social Buttons */
+.floating-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
   display: flex;
-  justify-content: center;
-  gap: 15px;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 999;
 }
-
-.social-links a {
-  text-decoration: none;
-  padding: 10px 18px;
-  border-radius: 8px;
-  font-weight: bold;
-  color: white;
+.float-btn {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
-  gap: 8px;
-  transition: 0.3s;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease;
 }
-
-.social-links a img {
-  width: 20px;
-  height: 20px;
+.float-btn img {
+  width: 28px;
+  height: 28px;
 }
-
-.social-links a.whatsapp {
+.float-btn:hover {
+  transform: scale(1.1);
+}
+.float-btn.whatsapp {
   background: #25D366;
 }
-
-.social-links a.instagram {
+.float-btn.instagram {
   background: #E1306C;
-}
-
-.social-links a:hover {
-  opacity: 0.85;
 }
 
 @media (max-width: 768px) {
@@ -178,18 +176,21 @@ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:
 
     <footer class="footer">
         <p class="footer-text">DEVELOP BY R2H Team</p>
-
-        <div class="social-links">
-            <a href="https://api.whatsapp.com/send/?phone=923336181194&text&type=phone_number&app_absent=0" target="_blank" class="whatsapp">
-                <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
-                WhatsApp
-            </a>
-            <a href="https://www.instagram.com/wtf._.rude._/" target="_blank" class="instagram">
-                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
-                Instagram
-            </a>
-        </div>
+        <a href="https://whatsapp.com/channel/0029VbAy8sq4Spk82e61hS0F" target="_blank">
+            <div class="whatsapp-icon">📱</div>
+            <span>FOLLOW ON WHATSAPP</span>
+        </a>
     </footer>
+</div>
+
+<!-- Floating Buttons -->
+<div class="floating-buttons">
+  <a href="https://api.whatsapp.com/send/?phone=923336181194&text&type=phone_number&app_absent=0" target="_blank" class="float-btn whatsapp">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+  </a>
+  <a href="https://www.instagram.com/wtf._.rude._/" target="_blank" class="float-btn instagram">
+    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+  </a>
 </div>
 
 <script>
@@ -281,17 +282,10 @@ function showError(message){
     hideResults();
     errorData.textContent = message;
     errorSection.style.display='block';
-    whatsappButton.style.display='inline-flex';
 }
 
-function hideResults(){
-    resultSection.style.display='none';
-}
-
-function hideError(){
-    errorSection.style.display='none';
-    whatsappButton.style.display='none';
-}
+function hideError(){ errorSection.style.display='none'; }
+function hideResults(){ resultSection.style.display='none'; }
 </script>
 </body>
 </html>
